@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsCarTools", "WinFormsCarTools\WinFormsCarTools.csproj", "{4DE30CA9-20A7-4BCE-BD61-1F5A148D6F05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsCarTools.Designer", "WinFormsCarTools.Designer\WinFormsCarTools.Designer.csproj", "{F93EDF3F-436E-4E37-8109-1B8FB12815CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DE30CA9-20A7-4BCE-BD61-1F5A148D6F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE30CA9-20A7-4BCE-BD61-1F5A148D6F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE30CA9-20A7-4BCE-BD61-1F5A148D6F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE30CA9-20A7-4BCE-BD61-1F5A148D6F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93EDF3F-436E-4E37-8109-1B8FB12815CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93EDF3F-436E-4E37-8109-1B8FB12815CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93EDF3F-436E-4E37-8109-1B8FB12815CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93EDF3F-436E-4E37-8109-1B8FB12815CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BE8FF90-C29D-4ADE-A6B8-10FEA479177B}
+	EndGlobalSection
+EndGlobal
