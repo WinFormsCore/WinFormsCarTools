@@ -54,19 +54,29 @@
             // 
             // gaugeControl1
             // 
-            this.gaugeControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gaugeControl1.Location = new System.Drawing.Point(585, 11);
+            this.gaugeControl1.DialLength = 20F;
+            this.gaugeControl1.DialOffsetAngle = 90F;
+            this.gaugeControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gaugeControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.gaugeControl1.Location = new System.Drawing.Point(566, 3);
+            this.gaugeControl1.MaxValue = 260F;
+            this.gaugeControl1.MinValue = 0F;
             this.gaugeControl1.Name = "gaugeControl1";
-            this.gaugeControl1.Size = new System.Drawing.Size(519, 481);
+            this.gaugeControl1.SeperationStepValue = 20F;
+            this.gaugeControl1.Size = new System.Drawing.Size(558, 497);
             this.gaugeControl1.TabIndex = 0;
             this.gaugeControl1.Text = "gaugeControl1";
+            this.gaugeControl1.UnitTextOffset = 45F;
+            this.gaugeControl1.Value = 0F;
+            this.gaugeControl1.ValueHandEnd = 140F;
+            this.gaugeControl1.ValueHandStart = 30F;
             // 
             // gForceVisualizerControl1
             // 
-            this.gForceVisualizerControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gForceVisualizerControl1.Location = new System.Drawing.Point(18, 3);
+            this.gForceVisualizerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gForceVisualizerControl1.Location = new System.Drawing.Point(3, 3);
             this.gForceVisualizerControl1.Name = "gForceVisualizerControl1";
-            this.gForceVisualizerControl1.Size = new System.Drawing.Size(526, 497);
+            this.gForceVisualizerControl1.Size = new System.Drawing.Size(557, 497);
             this.gForceVisualizerControl1.TabIndex = 1;
             this.gForceVisualizerControl1.Text = "gForceVisualizerControl1";
             this.gForceVisualizerControl1.XGforce = 0F;
