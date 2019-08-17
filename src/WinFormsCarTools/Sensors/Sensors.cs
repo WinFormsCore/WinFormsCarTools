@@ -6,7 +6,7 @@ namespace WinFormsCarTools.Sensors
 {
     public class Sensors
     {
-        public event EventHandler SensorReadingChanged;
+        public event EventHandler<SensorReadingChangedEventArgs> SensorReadingChanged;
 
         private Geolocator _locator;
         private Accelerometer _accelerometor;
@@ -23,10 +23,16 @@ namespace WinFormsCarTools.Sensors
             _locator.PositionChanged += Locator_PositionChanged;
 
             _accelerometor = Accelerometer.GetDefault(AccelerometerReadingType.Standard);
-            _accelerometor.ReadingChanged += Accelerometor_ReadingChanged;
+            if (_accelerometor != null)
+            {
+                _accelerometor.ReadingChanged += Accelerometor_ReadingChanged;
+            }
 
             _gyrometer = Gyrometer.GetDefault();
-            _gyrometer.ReadingChanged += _gyrometer_ReadingChanged;
+            if (_gyrometer != null)
+            {
+                _gyrometer.ReadingChanged += _gyrometer_ReadingChanged;
+            }
         }
 
         protected virtual void OnSensorReadingChanged(SensorReadingChangedEventArgs eArgs)
@@ -68,11 +74,6 @@ namespace WinFormsCarTools.Sensors
             {
                  Geoposition = args.Position
             });
-
-            //var position = args.Position.Coordinate.Point.Position;
-            //lblLatitude.Text = $"{position.Latitude:0.0000}";
-            //lblLongitude.Text = $"{position.Longitude:0.0000}";
-            //lblSpeed.Text = $"{args.Position.Coordinate.Speed:0.00}";
         }
     }
 }

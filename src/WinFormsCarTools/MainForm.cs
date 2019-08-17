@@ -5,16 +5,49 @@ namespace WinFormsCarTools
 {
     public partial class MainForm : Form
     {
+
+#if NETCOREAPP
+        private WinFormsCarTools.Sensors.Sensors _sensors = new WinFormsCarTools.Sensors.Sensors();
+#endif
+
         public MainForm()
         {
             InitializeComponent();
-        }
+#if NETCOREAPP
+            _sensors.SensorReadingChanged += Sensors_SensorReadingChanged;
+#endif
+    }
 
-        private void RandomPositionButton_Click(object sender, EventArgs e)
+#if NETCOREAPP
+        private void Sensors_SensorReadingChanged(object sender, Sensors.SensorReadingChangedEventArgs e)
         {
-            var random = new Random(DateTime.Now.Millisecond);
-            gForceVisualizerControl1.XGforce = (float) (-2 + random.NextDouble() * 4);
-            gForceVisualizerControl1.YGforce = (float) (-2 + random.NextDouble() * 4);
+            if (this.InvokeRequired)
+            {
+                this.Invoke((Action)(() => Sensors_SensorReadingChanged(sender, e)));
+                return;
+            }
+
+            switch (e.SensorEventReason)
+            {
+                case Sensors.SensorEventReason.Gyrometer:
+                    {
+                        gyroXLabel.Text = $"AVX: {e.GyrometerReading.AngularVelocityX:0.00}";
+                        gyroYLabel.Text = $"AVX: {e.GyrometerReading.AngularVelocityY:0.00}";
+                        gyroZLabel.Text = $"AVX: {e.GyrometerReading.AngularVelocityZ:0.00}";
+                    }
+                    break;
+
+                case Sensors.SensorEventReason.Accelerometer:
+                    break;
+
+                case Sensors.SensorEventReason.GpsStatus:
+                    break;
+
+                case Sensors.SensorEventReason.GpsPosition:
+                    gaugeControl1.Value = (float?)e.Geoposition.Coordinate.Speed ?? 0f;
+                    break;
+            }
         }
+#endif
     }
 }
