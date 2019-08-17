@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -8,6 +9,8 @@ namespace WinFormsCarTools
     class GaugeControl : Control
     {
         private float _value = 0;
+
+        public event EventHandler ValueChanged;
 
         public GaugeControl()
         {
@@ -121,7 +124,17 @@ namespace WinFormsCarTools
             set
             {
                 _value = value;
-                Invalidate();
+                OnValueChanged(EventArgs.Empty);
+            }
+        }
+
+        virtual protected void OnValueChanged(EventArgs e)
+        {
+            Invalidate();
+            var valueChangedEvent = ValueChanged;
+            if (!(valueChangedEvent is null))
+            {
+                valueChangedEvent(this, e);
             }
         }
 
